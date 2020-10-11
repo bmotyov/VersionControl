@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IRF_05_QPAZY7.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace IRF_05_QPAZY7
     {
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
+        List<PortfolioItem> Portfolio = new List<PortfolioItem>();
 
         public Form1()
         {
