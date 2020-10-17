@@ -1,4 +1,5 @@
-﻿using IRF_06_QPAZY7.MnbServiceReference;
+﻿using IRF_06_QPAZY7.Entities;
+using IRF_06_QPAZY7.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,11 @@ namespace IRF_06_QPAZY7
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList<RateData>();
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.DataSource = Rates.ToList();
             webservicecall();
         }
 
