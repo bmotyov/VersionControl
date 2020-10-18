@@ -27,12 +27,13 @@ namespace IRF_06_QPAZY7
 
         private void RefreshData()
         {
-            Rates.Clear();
-            dataGridView1.DataSource = Rates.ToList();
+            Rates.Clear();            
             webservicecall();
+            dataGridView1.DataSource = Rates;
             //feladat();
             hatos();
             comboBox1.DataSource = Currencies.ToList();
+                      
         }
 
         private void hatos()
@@ -57,12 +58,12 @@ namespace IRF_06_QPAZY7
         private void webservicecall()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
-
+            
             var request = new GetExchangeRatesRequestBody()
-            {
-                currencyNames = comboBox1.Text.ToString(),
+            {                
+                currencyNames = "EUR",
                 startDate = dateTimePicker1.Value.ToString(),
-                endDate = dateTimePicker2.Value.ToString()
+                endDate = dateTimePicker2.Value.ToString(),
             };
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
@@ -84,8 +85,7 @@ namespace IRF_06_QPAZY7
                 var value = decimal.Parse(childElement.InnerText);
                 if (unit != 0)
                     rate.Value = value / unit;
-            }
-
+            }            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
