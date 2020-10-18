@@ -27,6 +27,9 @@ namespace IRF_06_QPAZY7
 
         private void RefreshData()
         {
+            //utolsó feladat
+            dateTimePicker1.Value = DateTime.Today.Subtract(TimeSpan.FromDays(100));
+            comboBox1.Text = "EUR";
             Rates.Clear();            
             webservicecall();
             dataGridView1.DataSource = Rates;
