@@ -33,7 +33,7 @@ namespace IRF_06_QPAZY7
             //feladat();
             hatos();
             comboBox1.DataSource = Currencies.ToList();
-                      
+           
         }
 
         private void hatos()
