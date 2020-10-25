@@ -150,5 +150,14 @@ namespace IRF_07_QPAZY7
         {
             Simulation();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = ofd.FileName;
+            }               
+        }
     }
 }
