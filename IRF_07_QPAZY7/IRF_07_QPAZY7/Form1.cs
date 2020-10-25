@@ -33,7 +33,7 @@ namespace IRF_07_QPAZY7
                 // Végigmegyünk az összes személyen
                 for (int i = 0; i < Population.Count; i++)
                 {
-                    // Ide jön a szimulációs lépés
+                    SimStep(year,Population[i]);
                 }
 
                 int nbrOfMales = (from x in Population
