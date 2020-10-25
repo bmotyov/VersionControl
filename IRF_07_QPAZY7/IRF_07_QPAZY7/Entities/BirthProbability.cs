@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IRF_07_QPAZY7.Entities
 {
-    class BirthProbability
+    public class BirthProbability
     {
         public int kor { get; set; }
         public int gyszam { get; set; }
