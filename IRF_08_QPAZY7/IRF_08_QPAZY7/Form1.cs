@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IRF_08_QPAZY7.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace IRF_08_QPAZY7
 {
     public partial class Form1 : Form
     {
+        List<Ball> _balls = new List<Ball>();
+        private BallFactory _factory;
+        public BallFactory Factory
+        {
+            get { return _factory; }
+            set { _factory = value; }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            Factory = new BallFactory();
+        }
+
+        private void createTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void conveyorTimer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
