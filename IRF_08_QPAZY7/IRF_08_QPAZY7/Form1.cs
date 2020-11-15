@@ -52,5 +52,15 @@ namespace IRF_08_QPAZY7
                 _toys.Remove(oldestBall);
             }
         }
+
+        private void btn_SelectCar_Click(object sender, EventArgs e)
+        {
+            Factory = new Carfactory();
+        }
+
+        private void btn_SelectBall_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
     }
 }

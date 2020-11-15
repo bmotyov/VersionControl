@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IRF_08_QPAZY7.Entities
 {
-    class Carfactory : IToyFactory
+    public class Carfactory : IToyFactory
     {        
         public Toy CreateNew()
         {
