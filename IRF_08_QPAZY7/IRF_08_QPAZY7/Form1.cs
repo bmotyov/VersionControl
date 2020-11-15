@@ -29,12 +29,27 @@ namespace IRF_08_QPAZY7
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-
+            var ball = Factory.CreateNew();
+            _balls.Add(ball);
+            ball.Left = -ball.Width;
+            mainPanel.Controls.Add(ball);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
-
+            var maxPosition = 0;
+            foreach (var balls in _balls)
+            {
+                balls.MoveBall();
+                if (balls.Left > maxPosition)
+                    maxPosition = balls.Left;
+            }
+            if (maxPosition > 1000)
+            {
+                var oldestBall = _balls[0];
+                mainPanel.Controls.Remove(oldestBall);
+                _balls.Remove(oldestBall);
+            }
         }
     }
 }
