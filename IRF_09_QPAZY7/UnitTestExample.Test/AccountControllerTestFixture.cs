@@ -10,7 +10,8 @@ namespace UnitTestExample.Test
 {
     public class AccountControllerTestFixture
     {
-        [Test]
+        [
+            Test,]
         public void TestValidateEmail(string email, bool expectedResult)
         {
             // Arrange
