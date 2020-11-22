@@ -32,15 +32,23 @@ namespace UnitTestExample.Test
 
         [
             Test,
-            TestCase("abcd1234",true),
-
-            
-            
-            
+            TestCase("nincsenszam",false),
+            TestCase("NINCSKISBETU",false),
+            TestCase("nincsnagybetu", false),
+            TestCase("NINCSKISBETU", false),
+            TestCase("r", false),
+            TestCase("Ez1F*SzaJel5zo", true),
         ]
-        public void TestValidationPswd()
+        public void TestValidationPswd(string pswd,string expectedResult)
         {
+            // Arrange
+            var accountcontroller = new AccountController();
 
+            // Act
+            var actualResult = accountcontroller.ValidatePassword(pswd);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
         }       
     }
 }
