@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Moq;
 using NUnit.Framework;
+using UnitTestExample.Abstractions;
 using UnitTestExample.Controllers;
+using UnitTestExample.Entities;
 
 namespace UnitTestExample.Test
 {
@@ -59,7 +62,13 @@ namespace UnitTestExample.Test
         public void TestRegisterHappyPath(string email, string password)
         {
             // Arrange
+            //var accountController = new AccountController();
+            var accountServiceMock = new Mock<IAccountManager>(MockBehavior.Strict);
+            accountServiceMock
+                .Setup(m => m.CreateAccount(It.IsAny<Account>()))
+                .Returns<Account>(a => a);
             var accountController = new AccountController();
+            accountController.AccountManager = accountServiceMock.Object;
 
             // Act
             var actualResult = accountController.Register(email, password);
