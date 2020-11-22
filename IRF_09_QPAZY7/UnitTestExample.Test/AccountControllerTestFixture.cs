@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,7 +70,12 @@ namespace UnitTestExample.Test
             Assert.AreNotEqual(Guid.Empty, actualResult.ID);
         }
      
-         [Test]
+         [
+            Test,
+            TestCase("bence@bence" , "Abcd1234"),
+            TestCase("bence@bence.hu", "A"),
+            TestCase("bence@bence", "A")
+         ]
          public void TestRegisterValidateException(string email, string password)
          {
             // Arrange
@@ -79,11 +85,11 @@ namespace UnitTestExample.Test
             try
             {
                 var actualResult = accountController.Register(email, password);
+                Assert.Fail();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Assert.IsInstanceOf<ValidationException>(ex);
             }
         }
 
