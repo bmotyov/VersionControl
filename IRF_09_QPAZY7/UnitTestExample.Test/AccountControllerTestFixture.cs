@@ -29,5 +29,18 @@ namespace UnitTestExample.Test
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [
+            Test,
+            TestCase("abcd1234",true),
+
+            
+            
+            
+        ]
+        public void TestValidationPswd()
+        {
+
+        }       
     }
 }
