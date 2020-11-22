@@ -39,6 +39,7 @@ namespace UnitTestExample.Test
             TestCase("r", false),
             TestCase("Abcd1234", true)
         ]
+
         public void TestValidationPswd(string pswd, bool expectedResult)
         {
             // Arrange
@@ -49,6 +50,20 @@ namespace UnitTestExample.Test
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
-        }       
+        }
+
+        [
+            Test,
+            TestCase("irf@uni-corvinus.hu", "Abcd1234"),
+            TestCase("irf@uni-corvinus.hu", "Abcd1234567"),
+        ]   
+
+        public void TestRegisterHappyPath(string email, string password)
+        {
+            
+            
+        }
+
+
     }
 }
