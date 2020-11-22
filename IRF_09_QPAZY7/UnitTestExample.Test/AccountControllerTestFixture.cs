@@ -37,9 +37,9 @@ namespace UnitTestExample.Test
             TestCase("nincsnagybetu", false),
             TestCase("NINCSKISBETU", false),
             TestCase("r", false),
-            TestCase("Ez1F*SzaJel5zo", true),
+            TestCase("Abcd1234", true)
         ]
-        public void TestValidationPswd(string pswd,string expectedResult)
+        public void TestValidationPswd(string pswd, bool expectedResult)
         {
             // Arrange
             var accountcontroller = new AccountController();
