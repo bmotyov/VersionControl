@@ -60,8 +60,9 @@ namespace UnitTestExample.Test
 
         public void TestRegisterHappyPath(string email, string password)
         {
-            
-            
+            // Arrange
+            var accountController = new AccountController();
+
         }
 
 
