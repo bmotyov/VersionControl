@@ -59,6 +59,7 @@ namespace IRF_10_QPAZY7
             {
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
                 gc.GameOver -= Gc_GameOver;
+                button1.Visible = true;
                 return;
             }
 
