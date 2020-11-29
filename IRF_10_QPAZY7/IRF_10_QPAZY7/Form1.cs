@@ -28,7 +28,10 @@ namespace IRF_10_QPAZY7
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
 
-            gc.AddPlayer();
+            for (int i = 0; i < populationSize-1; i++)
+            {
+                gc.AddPlayer(nbrOfSteps);                
+            }
             gc.Start(true);
         }
     }
