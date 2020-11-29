@@ -22,6 +22,9 @@ namespace IRF_10_QPAZY7
 
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
+
+            gc.AddPlayer();
+            gc.Start(true);
         }
     }
 }
