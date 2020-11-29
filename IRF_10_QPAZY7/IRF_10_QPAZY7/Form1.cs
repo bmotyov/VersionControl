@@ -45,11 +45,24 @@ namespace IRF_10_QPAZY7
             generation++;
             label1.Text = string.Format("{0}. generáció", generation);
 
+            //győztes kiválasztása
             var playerList = from p in gc.GetCurrentPlayers()
                              orderby p.GetFitness() descending
                              select p;
             var topPerformers = playerList.Take(populationSize / 2).ToList();
 
+            //van-e győztes
+            var winners = from p in topPerformers
+                          where p.IsWinner
+                          select p;
+            if (winners.Count() > 0)
+            {
+                winnerBrain = winners.FirstOrDefault().Brain.Clone();
+                gc.GameOver -= Gc_GameOver;
+                return;
+            }
+
+            //tanulási algoritmus
             gc.ResetCurrentLevel();
             foreach (var p in topPerformers)
             {
@@ -64,6 +77,8 @@ namespace IRF_10_QPAZY7
                 else
                     gc.AddPlayer(b.Mutate());
             }
+
+            //játék újraindítása
             gc.Start();
         }
 
