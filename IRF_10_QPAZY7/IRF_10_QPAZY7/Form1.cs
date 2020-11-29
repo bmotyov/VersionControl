@@ -53,8 +53,9 @@ namespace IRF_10_QPAZY7
 
             //van-e győztes
             var winners = from p in topPerformers
-                          where p.IsWinner
+                          where !p.IsWinner
                           select p;
+
             if (winners.Count() > 0)
             {
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
