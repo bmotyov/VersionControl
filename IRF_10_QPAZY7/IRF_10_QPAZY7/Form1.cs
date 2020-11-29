@@ -15,6 +15,7 @@ namespace IRF_10_QPAZY7
     {
         GameController gc = new GameController();
         GameArea ga;
+        Brain winnerBrain = null;
 
         int populationSize = 100;
         int nbrOfSteps = 10;
